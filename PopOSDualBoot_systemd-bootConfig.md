@@ -20,6 +20,10 @@ So what are the differences between `systemd-boot` and `grub2`? They are both mu
 #### `grub2`
 GRUB is known for being highly configurable and breaking easily due to chain-loaded kernels. Kernels and new operating systems cannot be just "dropped in".
 
+# Create a Windows Entry in `systemd-boot`
+1. install and run `os-prober` to find out where Windows boot manager is. Should look like: `/dev/sdb1@/EFI/Microsoft/Boot/bootmgfw.efi:Windows Boot Manager:Windows:efi`
+2. run `mount /dev/sdb1 /mnt` to mount the partition containing the windows boot manager.
+3. Copy the `Microsoft` folder to linux and place in `/boot/efi/EFI`.
 
 # Linux Commands
 | Command | Description |
